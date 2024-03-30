@@ -14,6 +14,9 @@ host config:
   iptables -t filter -P FORWARD ACCEPT
   开启 NAT
   iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
+  
+add "allow br0" into host's /etc/qemu/bridge.conf
+
 qemu guest config:
   ip addr add 192.168.100.2/24 brd + dev ens3
   ip route add default via 192.168.100.1 dev ens3
