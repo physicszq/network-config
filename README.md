@@ -5,14 +5,14 @@ host config:
   ip link add name br0 type bridge
   ip addr add 192.168.100.1/24 brd + dev br0
   ip link set br0 up
-  # 开启 ip_forward
+  开启 ip_forward
   sysctl -w net.ipv4.ip_forward=1
-  # 允许对从 br0 流入的数据包进行 FORWARD
+  允许对从 br0 流入的数据包进行 FORWARD
   iptables -t filter -A FORWARD -i br0 -j ACCEPT
   iptables -t filter -A FORWARD -o br0 -j ACCEPT
-  # 也可以直接将 filter FORWARD 策略直接设置为 ACCEPT
-  # iptables -t filter -P FORWARD ACCEPT
-  # 开启 NAT
+  也可以直接将 filter FORWARD 策略直接设置为 ACCEPT
+  iptables -t filter -P FORWARD ACCEPT
+  开启 NAT
   iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
 qemu guest config:
   ip addr add 192.168.100.2/24 brd + dev ens3
