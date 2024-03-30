@@ -18,15 +18,18 @@ host config:
 add "allow br0" into host's /etc/qemu/bridge.conf
 
 qemu guest config:
-  ip addr add 192.168.100.2/24 brd + dev ens3
-  ip route add default via 192.168.100.1 dev ens3
+  ip addr add 192.168.100.2/24 brd + dev eth0
+  ip route add default via 192.168.100.1 dev eth0
+  ip route del default //删除默认路由
+  ip route add default via 192.168.100.1 dev eth0//添加默认路由
+  systemctl start networking //启动网络，restart用不了
 qemu /etc/network/interfaces:
   auto eth0
   iface eth0 inet static
 	  address 192.168.100.2
 	  netmask 255.255.255.0
 	  gateway 192.168.100.1
-
+q
 start qemu command:
   sudo qemu-system-x86_64 \
 	  -m 2048 \
