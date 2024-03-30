@@ -34,7 +34,8 @@ start qemu command:
 	  -nic bridge,br=br0,model=e1000,mac=02:76:7d:d7:1e:3f \
 	  -nographic \
 	  -pidfile vm.pid \
-    2>&1 | tee vm.log
+   	  2>&1 | tee vm.log
+
 result:
  `qemu and host can communicate with each other, but qemu can't access internet because "Temporary failure in name resolution" `
 
