@@ -47,13 +47,15 @@ result:
 
 
 download tools into file system for qemu:
-  zq@zq-virtual-machine:~$ cd /home/zq/fs_img/
-zq@zq-virtual-machine:~/fs_img$ ls
-bullseye.id_rsa      bullseye.img  create_img.sh    setup_net.sh
-bullseye.id_rsa.pub  chroot        recreate_img.sh  vm.log
-zq@zq-virtual-machine:~/fs_img$ sudo mount bullseye.img chroot/
-[sudo] zq 的密码： 
-zq@zq-virtual-machine:~/fs_img$ sudo chroot chroot/
+  zq\@zq-virtual-machine:~$ cd /home/zq/fs_img/
+  zq\@zq-virtual-machine:~/fs_img$ ls
+  bullseye.id_rsa      bullseye.img  create_img.sh    setup_net.sh
+  bullseye.id_rsa.pub  chroot        recreate_img.sh  vm.log
+  zq\@zq-virtual-machine:~/fs_img$ sudo mount bullseye.img chroot/
+  [sudo] zq 的密码： 
+  zq\@zq-virtual-machine:~/fs_img$ sudo chroot chroot/
+  sudo umount chroot/
+
 
  
 
