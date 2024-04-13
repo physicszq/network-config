@@ -62,6 +62,11 @@ download tools into file system for qemu:
   
   sudo umount chroot/
 
+无证书使用apt
+
+deb [trusted=yes] https://mirrors.tuna.tsinghua.edu.cn/ubuntu focal main restricted
+
+在数据源文件/etc/apt/sources.list中都加入[trusted=yes]
 
  
 
